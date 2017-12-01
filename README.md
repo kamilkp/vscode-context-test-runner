@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/badge/license-MIT%20License-blue.svg">
+
 # vscode-context-test-runner 🚀
 
 ## TL;DR
