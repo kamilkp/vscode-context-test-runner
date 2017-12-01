@@ -35,7 +35,7 @@ Those commands open up an Integrated Terminal window (or focus it when one was a
 
 Here is the list of this extension's settings with their default values:
 
-```javasript
+```javascript
   // Show 'Run current test' option on touch bar
   "context-test-runner.showTouchBarRunTestsFromFile": true,
 
