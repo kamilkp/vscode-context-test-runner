@@ -1,7 +1,7 @@
 # vscode-context-test-runner 🚀
 
 ## TL;DR
-
+<img width="1085" alt="touch bar shot 2017-11-28 at 15 34 48" src="https://user-images.githubusercontent.com/5748846/33464564-2ef40304-d643-11e7-870d-bbdc62a0a2e6.png">
 Execute currently developed unit test or unit tests from current file only with a single tap on the MacBook's TouchBar. This extension is aware of the test file you have currently opened and the test spec you are currently writing.
 
 ---
