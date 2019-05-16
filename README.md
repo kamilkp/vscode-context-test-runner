@@ -73,7 +73,7 @@ Python
 
 ```json
 "context-test-runner.testAllCommand": "pytest",
-"context-test-runner.testCurrentCommand": "pytest {filename.relative} -k {testname}",
+"context-test-runner.testCurrentCommand": "pytest {filename.relative}::{testname}",
 "context-test-runner.testFromFileCommand": "pytest {filename.relative}"
 ```
 
