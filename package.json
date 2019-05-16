@@ -1,127 +1,152 @@
 {
-    "name": "context-test-runner",
-    "displayName": "Context aware test runner",
-    "description": "Run unit tests conveniently directly from the test file you are working on",
-    "version": "0.0.1",
-    "publisher": "Kamil Pękala",
-    "engines": {
-        "vscode": "^1.18.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCommand:context-test-runner.cmd.runCurrentTest",
-        "onCommand:context-test-runner.tbr.runCurrentTest",
-        "onCommand:context-test-runner.cmd.runTestsFromFile",
-        "onCommand:context-test-runner.tbr.runTestsFromFile",
-        "onCommand:context-test-runner.cmd.runAllTests",
-        "onCommand:context-test-runner.tbr.runAllTests"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "context-test-runner.cmd.runCurrentTest",
-                "group": "context-test-runner",
-                "title": "Run current test"
-            },
-            {
-                "command": "context-test-runner.tbr.runCurrentTest",
-                "group": "context-test-runner",
-                "title": "🚀 Test current"
-            },
-            {
-                "command": "context-test-runner.cmd.runTestsFromFile",
-                "group": "context-test-runner",
-                "title": "Run tests from current file"
-            },
-            {
-                "command": "context-test-runner.tbr.runTestsFromFile",
-                "group": "context-test-runner",
-                "title": "🚀 Test file"
-            },
-            {
-                "command": "context-test-runner.cmd.runAllTests",
-                "group": "context-test-runner",
-                "title": "Run all tests"
-            },
-            {
-                "command": "context-test-runner.tbr.runAllTests",
-                "group": "context-test-runner",
-                "title": "🚀 Test all"
-            }
-        ],
-        "menus": {
-            "commandPalette": [
-                { "command": "context-test-runner.cmd.runCurrentTest" },
-                { "command": "context-test-runner.cmd.runTestsFromFile" },
-                { "command": "context-test-runner.cmd.runAllTests" },
-                { "command": "context-test-runner.tbr.runCurrentTest",   "when": "false" },
-                { "command": "context-test-runner.tbr.runTestsFromFile", "when": "false" },
-                { "command": "context-test-runner.tbr.runAllTests",      "when": "false" }
-            ],
-            "touchBar": [
-                {
-                    "command": "context-test-runner.tbr.runCurrentTest",
-                    "when": "config.context-test-runner.showTouchBarRunCurrentTest"
-                },
-                {
-                    "command": "context-test-runner.tbr.runTestsFromFile",
-                    "when": "config.context-test-runner.showTouchBarRunTestsFromFile"
-                },
-                {
-                    "command": "context-test-runner.tbr.runAllTests",
-                    "when": "config.context-test-runner.showTouchBarRunAllTests"
-                }
-            ]
-        },
-        "configuration": {
-            "type": "object",
-            "title": "context-test-runner extension configuration",
-            "properties": {
-                "context-test-runner.showTouchBarRunTestsFromFile": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Show 'Run current test' option on touch bar"
-                },
-                "context-test-runner.showTouchBarRunCurrentTest": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Show 'Run tests from current file' option on touch bar"
-                },
-                "context-test-runner.showTouchBarRunAllTests": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Show 'Run all tests' option on touch bar"
-                },
-                "context-test-runner.testCurrentCommand": {
-                    "type": "string",
-                    "default": "echo 'You need to set up your test command for context-test-runner'",
-                    "description": "Test command. e.g.: \"npm test -- --fgrep {testname}\""
-                },
-                "context-test-runner.testFromFileCommand": {
-                    "type": "string",
-                    "default": "echo 'You need to set up your test command for context-test-runner'",
-                    "description": "Test command. e.g.: \"TEST_FILE={filename.absolute} npm test\""
-                },
-                "context-test-runner.testAllCommand": {
-                    "type": "string",
-                    "default": "echo 'You need to set up your test command for context-test-runner'",
-                    "description": "Test command. e.g.: \"npm test\""
-                }
-            }
-        }
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
-        "eslint": "^4.6.1",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
-    }
+	"name": "context-test-runner",
+	"displayName": "Context aware test runner",
+	"description": "Run unit tests conveniently directly from the test file you are working on",
+	"version": "0.0.2",
+	"publisher": "kamilkp",
+	"engines": {
+		"vscode": "^1.18.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:context-test-runner.cmd.runCurrentTest",
+		"onCommand:context-test-runner.tbr.runCurrentTest",
+		"onCommand:context-test-runner.cmd.runTestsFromFile",
+		"onCommand:context-test-runner.tbr.runTestsFromFile",
+		"onCommand:context-test-runner.cmd.runAllTests",
+		"onCommand:context-test-runner.tbr.runAllTests"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "context-test-runner.cmd.runCurrentTest",
+				"group": "context-test-runner",
+				"title": "Run current test"
+			},
+			{
+				"command": "context-test-runner.tbr.runCurrentTest",
+				"group": "context-test-runner",
+				"title": "🚀 Test current"
+			},
+			{
+				"command": "context-test-runner.cmd.runTestsFromFile",
+				"group": "context-test-runner",
+				"title": "Run tests from current file"
+			},
+			{
+				"command": "context-test-runner.tbr.runTestsFromFile",
+				"group": "context-test-runner",
+				"title": "🚀 Test file"
+			},
+			{
+				"command": "context-test-runner.cmd.runAllTests",
+				"group": "context-test-runner",
+				"title": "Run all tests"
+			},
+			{
+				"command": "context-test-runner.tbr.runAllTests",
+				"group": "context-test-runner",
+				"title": "🚀 Test all"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "context-test-runner.cmd.runCurrentTest"
+				},
+				{
+					"command": "context-test-runner.cmd.runTestsFromFile"
+				},
+				{
+					"command": "context-test-runner.cmd.runAllTests"
+				},
+				{
+					"command": "context-test-runner.tbr.runCurrentTest",
+					"when": "false"
+				},
+				{
+					"command": "context-test-runner.tbr.runTestsFromFile",
+					"when": "false"
+				},
+				{
+					"command": "context-test-runner.tbr.runAllTests",
+					"when": "false"
+				}
+			],
+			"touchBar": [
+				{
+					"command": "context-test-runner.tbr.runCurrentTest",
+					"when": "config.context-test-runner.showTouchBarRunCurrentTest"
+				},
+				{
+					"command": "context-test-runner.tbr.runTestsFromFile",
+					"when": "config.context-test-runner.showTouchBarRunTestsFromFile"
+				},
+				{
+					"command": "context-test-runner.tbr.runAllTests",
+					"when": "config.context-test-runner.showTouchBarRunAllTests"
+				}
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "context-test-runner extension configuration",
+			"properties": {
+				"context-test-runner.showTouchBarRunTestsFromFile": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show 'Run current test' option on touch bar"
+				},
+				"context-test-runner.showTouchBarRunCurrentTest": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show 'Run tests from current file' option on touch bar"
+				},
+				"context-test-runner.showTouchBarRunAllTests": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show 'Run all tests' option on touch bar"
+				},
+				"context-test-runner.testCurrentCommand": {
+					"type": "string",
+					"default": "echo 'You need to set up your test command for context-test-runner'",
+					"description": "Test command. e.g.: \"npm test -- --fgrep {testname}\""
+				},
+				"context-test-runner.testFromFileCommand": {
+					"type": "string",
+					"default": "echo 'You need to set up your test command for context-test-runner'",
+					"description": "Test command. e.g.: \"TEST_FILE={filename.absolute} npm test\""
+				},
+				"context-test-runner.testAllCommand": {
+					"type": "string",
+					"default": "echo 'You need to set up your test command for context-test-runner'",
+					"description": "Test command. e.g.: \"npm test\""
+				},
+				"context-test-runner.relativeRoot": {
+					"type": "string",
+					"default": "",
+					"description": "Relative path from root dir to offset {filename.relative} e.g. \"/core\""
+				}
+			}
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6",
+		"eslint": "^4.6.1",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"__metadata": {
+		"id": "565d0fec-a8f1-424a-bafe-843372741728",
+		"publisherDisplayName": "Kamil Pękala",
+		"publisherId": "1133dbab-f630-45da-980f-102353ccefd7"
+	}
 }

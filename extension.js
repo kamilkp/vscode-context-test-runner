@@ -6,11 +6,16 @@ const getMochaTest              = require('./src/getMochaTest');
 const getTopLevelPythonFunction = require('./src/getTopLevelPythonFunction');
 
 function getFileDetails(filename) {
+  const config = vscode.workspace.getConfiguration('context-test-runner');
   const absolute = filename;
   let relative = null;
 
   if (vscode.workspace.workspaceFolders[0]) {
-    relative = path.relative(vscode.workspace.workspaceFolders[0].uri.path, filename);
+    let relativeRoot = vscode.workspace.workspaceFolders[0].uri.path;
+    if (config.relativeRoot) {
+      relativeRoot = path.join(relativeRoot, config.relativeRoot);
+    }
+    relative = path.relative(relativeRoot, filename);
   }
 
   return { absolute, relative };
